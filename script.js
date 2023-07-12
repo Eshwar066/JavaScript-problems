@@ -301,8 +301,8 @@
 // const greetPerson=greet.bind(Person);
 // greetPerson('asdasd')
 
-/////////////////////////////////////////////////////////////////////////////
-//flaten an array------------------------1
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// flaten an array------------------------1
 // const nestedArray = [1, [2,45], [3, 4], 5, 6];
 // function flatArray(arr){
 //   return arr.reduce((result,current)=>{
@@ -314,6 +314,20 @@
 // }
 // const flattedArray=flatArray(nestedArray)
 // console.log(flattedArray);
+
+// flaten an array------------------------2
+// const nestedArray = [[1, 2], [3, 4], [5, 6]];
+// const flattenedArray = nestedArray.map((arr) => arr.map((num) => num));
+
+// console.log(flattenedArray); // Output: [1, 2, 3, 4, 5, 6]
+
+//flaten an array------------------------3
+// const multiArray = [[1, 2], [3, 4], [5, 6]];
+// const singleArray = multiArray.map((arr) => [].concat(...arr));
+
+// console.log(singleArray); // Output: [1, 2, 3, 4, 5, 6]
+
+
 
 // //Remove Duplicates in array
 // const array = [1, 2, 3, 2, 4, 1, 5, 4];
@@ -510,16 +524,272 @@
 // console.log(result);
 
 // sorting an object considering an age //using map method
-const people = [
-    { name: 'Alice', age: 25 },
-    { name: 'Bob', age: 30 },
-    { name: 'Charlie', age: 20 }
-  ];
+// const people = [
+//     { name: 'Alice', age: 25 },
+//     { name: 'Bob', age: 30 },
+//     { name: 'Charlie', age: 20 }
+//   ];
   
-  const sorted = people.map((currentValue) => currentValue)
-    .sort((a, b) => a.age - b.age);
+//   const sorted = people.map((currentValue) => currentValue)
+//     .sort((a, b) => a.age - b.age);
   
-  console.log(sorted);
+//   console.log(sorted);
+
+
+//most common element in an array --------------------------------------- *** 1
+// const array = [1, 2, 3, 2, 1, 3, 2, 4, 5, 4];
+// const countMap=array.reduce((acc,curr)=>{
+//      acc[curr]?acc[curr]++:(acc[curr]=1)
+//      return acc;
+// },{})
+// const mostCommon=Object.entries(countMap).sort((a,b)=>b[1]-a[1])
+// console.log(mostCommon)
+// console.log(mostCommon[0][0])
+
+//difference between two arrays ---------------------------------------- 1
+// const array1 = [1, 2, 3, 4, 5];
+// const array2 = [3, 4, 5, 6, 7];
+// const difference = array1.reduce((accumulator, currentValue) => {
+//   if (!array2.includes(currentValue)) {
+//     accumulator.push(currentValue);
+//   }
+//   return accumulator;
+// }, []);
+// console.log(difference);
+
+//factorial of a number ----------------------------------------1 
+// function factorialLoop(num) {
+//   if (num === 0 || num === 1) {
+//     return 1;
+//   }
+//   let factorial = 1;
+//   for (let i = 2; i <= num; i++) {
+//     factorial *= i;
+//   }
+//   return factorial;
+// }
+
+// const number = 5;
+// const result = factorialLoop(number);
+// console.log(result); // Output: 120
+
+//factorial of a number using recursion-------------------------------1
+// function factorialRecursive(num) {
+//   if (num === 0 || num === 1) {
+//     return 1;
+//   }
+//   return num * factorialRecursive(num - 1);
+// }
+
+// const number = 5;
+// const result = factorialRecursive(number);
+// console.log(result); // Output: 120
+
+//remove falsy value in an array ----------------------------------- 1
+// const array = [0, 1, false, true, '', 'hello', null, undefined, NaN];
+// const filtered = array.reduce((accumulator, currentValue) => {
+//   if (currentValue) {
+//     accumulator.push(currentValue);
+//   }
+//   return accumulator;
+// }, []);
+// console.log(filtered);
+
+//seprate even and odd -------------------------------------------------- 1
+// const array = [1, 2, 3, 4, 5, 6];
+// const evenNumbers = [];
+// const oddNumbers = [];
+
+// array.forEach((number) => {
+//   if (number % 2 === 0) {
+//     evenNumbers.push(number);
+//   } else {
+//     oddNumbers.push(number);
+//   }
+// });
+//  const res=[...oddNumbers,...evenNumbers]
+//  console.log(res)
+
+
+// seprate even and odd --------------------------------------------- 2
+// const array = [1, 2, 3, 4, 5, 6];
+// let evenIndex = 0;
+// let oddIndex = array.length - 1;
+// while (evenIndex < oddIndex) {
+//   while (array[evenIndex] % 2 === 0 && evenIndex < oddIndex) {
+//     evenIndex++;
+//   }
+//   while (array[oddIndex] % 2 !== 0 && evenIndex < oddIndex) {
+//     oddIndex--;
+//   }
+//   if (evenIndex < oddIndex) {
+//     // Swap even and odd numbers
+//     [array[evenIndex], array[oddIndex]] = [array[oddIndex], array[evenIndex]];
+//   }
+// }
+// console.log(array); // Output: [2, 4, 6, 1, 5, 3]
+
+//upperCase---------------------------------------------------------------1
+// const str = 'Hello';
+// const res=str.split('').map((char)=>char.toUpperCase()).join(',')
+// console.log(res)
+
+//Array of objects into single objects-------------------------------**1
+// const users = [
+//   { id: 1, name: 'John' },
+//   { id: 2, name: 'Jane' },
+//   { id: 3, name: 'Alice' }
+// ];
+
+// const transformedObject = users.map((user) => {
+//   return { [user.id]: user.name };
+// }).reduce((acc, obj) => {
+//   return { ...acc, ...obj };
+// }, {});
+// console.log(transformedObject);
+// Output: { '1': 'John', '2': 'Jane', '3': 'Alice' }
+
+// rray of objects into single objects-------------------------------**2
+// const array = [
+//   { id: 1, name: 'John' },
+//   { id: 2, name: 'Jane' },
+//   { id: 3, name: 'Alice' }
+// ];
+
+// const object = array.map((item) => ({ [item.id]: item.name }))
+//   .reduce((acc, obj) => ({ ...acc, ...obj }), {});
+
+// console.log(object);
+// /*
+// Output:
+// {
+//   '1': 'John',
+//   '2': 'Jane',
+//   '3': 'Alice'
+// }
+// */
+
+
+//string of numbers into an array of integers----------------------------------------1
+// const numbersString = "1,2,3,4,5";
+// const numbersArray = numbersString.split(",").map((num) => parseInt(num));
+// console.log(numbersArray); // Output: [1, 2, 3, 4, 5]
+
+//converting array of arrays into objects--------------------------------------------1 
+// const strings = ['apple', 'banana', 'orange'];
+// const object = Object.fromEntries(strings.map((str) => [str.length, str]));
+// console.log(object);
+// /*
+// Output:
+// {
+//   '5': 'apple',
+//   '6': 'banana',
+//   '6': 'orange'
+// }
+// */
+
+
+//convert an array of objects into a nested object structure-------------------------------------1
+// const array = [
+//   { category: 'fruit', name: 'apple' },
+//   { category: 'fruit', name: 'banana' },
+//   { category: 'vegetable', name: 'carrot' },
+//   { category: 'vegetable', name: 'potato' }
+// ];
+
+// const nestedObject = {};
+
+// array.map((obj) => {
+//   if (!nestedObject[obj.category]) {
+//     nestedObject[obj.category] = [];
+//   }
+//   nestedObject[obj.category].push(obj.name);
+// });
+
+// console.log(nestedObject);
+// /*
+// Output:
+// {
+//   fruit: ['apple', 'banana'],
+//   vegetable: ['carrot', 'potato']
+// }
+// */
+
+/////////////////////////////////////////////////filter/////////////////////////////////////////
+//remove dublicate numbers in an array --------------------------------------- 1
+// const numbers = [1, 2, 3, 2, 4, 1, 5];
+// const uniqueArray = numbers.filter((element, index, array) => array.indexOf(element) === index);
+// console.log(uniqueArray); // Output: [1, 2, 3, 4, 5]
+
+
+//To filter an array of objects based on a specific property value using the filter method---------------------1
+// const products = [
+//   { name: 'Apple', category: 'Fruit' },
+//   { name: 'Carrot', category: 'Vegetable' },
+//   { name: 'Banana', category: 'Fruit' },
+//   { name: 'Broccoli', category: 'Vegetable' }
+// ];
+
+// const filteredArray = products.filter(product => product.category === 'Fruit');
+// console.log(filteredArray);
+// Output: [{ name: 'Apple', category: 'Fruit' }, { name: 'Banana', category: 'Fruit' }]
+
+
+// filtering an array of strings to remove elements that start with a specific letter------------------ 1
+// const fruits = ['Apple', 'Banana', 'Avocado', 'Mango', 'Orange'];
+// const filteredArray = fruits.filter(fruit => !fruit.startsWith('A'));
+// console.log(filteredArray); // Output: ['Banana', 'Mango', 'Orange']
+
+// array of objects based on multiple properties using the filter method:-----------------------------------------1
+// const products = [
+//   { name: 'Apple', category: 'Fruit', price: 1 },
+//   { name: 'Carrot', category: 'Vegetable', price: 2 },
+//   { name: 'Banana', category: 'Fruit', price: 1 },
+//   { name: 'Broccoli', category: 'Vegetable', price: 3 }
+// ];
+// const filteredArray = products.filter(product => product.category === 'Fruit' && product.price < 2);
+// console.log(filteredArray);
+// Output: [{ name: 'Apple', category: 'Fruit', price: 1 }]
+
+// array of strings and find all elements that contain a specific substring using the filter method---------------------------------1
+// const fruits = ['Apple', 'Banana', 'Avocado', 'Mango', 'Orange'];
+// const filteredArray = fruits.filter(fruit => fruit.includes('an'));
+// console.log(filteredArray); // Output: ['Banana', 'Mango']
+
+//regular expression pattern----------------------------------------------1
+// const words = ['hello', 'world', 'javascript', 'programming'];
+// const filteredArray = words.filter(word => /o/.test(word));
+// console.log(filteredArray); // Output: ['hello', 'world', 'programming']
+
+//destructuring---------------------------------------- 1
+// const products = [
+//   { name: 'Apple', category: 'Fruit' },
+//   { name: 'Carrot', category: 'Vegetable' },
+//   { name: 'Banana', category: 'Fruit' },
+//   { name: 'Broccoli', category: 'Vegetable' }
+// ];
+
+// const filteredArray = products.filter(({ category }) => category === 'Fruit');
+// console.log(filteredArray);
+// Output: [{ name: 'Apple', category: 'Fruit' }, { name: 'Banana', category: 'Fruit' }]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
 
 
