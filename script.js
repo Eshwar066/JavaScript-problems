@@ -432,3 +432,97 @@
 // const twos = arr.filter((num) => num === 2);
 // const swappedArr = zeros.concat(ones, twos);
 // console.log(swappedArr);
+
+//max number in an array--------------------------1
+// const numbers = [5, 8, 2, 1, 10];
+// const max = numbers.reduce((accumulator, currentValue) => {
+// if(currentValue>accumulator) accumulator=currentValue
+// return accumulator
+// },0)
+// console.log(max);
+
+//number count in ana array---------------------------------1
+// const array = [1, 2, 3, 2, 1, 3, 2, 4, 5, 4];
+// const count = array.reduce((accumulator, currentValue) => {
+//   accumulator[currentValue]?accumulator[currentValue]++:(accumulator[currentValue]=1)
+//   return accumulator;
+// }, {});
+// console.log(count);
+
+
+
+//Reverse an Array---------------------------------------------------1
+// const array = [1, 2, 3, 4, 5];
+// const reversed = array.reduce((accumulator, currentValue) => [currentValue, ...accumulator], []);
+// console.log(reversed);
+
+//Remove duplicate elements in an array------------------------------1 && 2
+// const array = [1, 2, 3, 2, 4, 1, 5, 4];
+// const unique = array.reduce((accumulator, currentValue) => { 
+//   if (!accumulator.includes(currentValue)) {
+//     accumulator.push(currentValue);
+//   }
+//   return accumulator;
+// }, []);
+
+// const unique=[...new Set(array)]
+// console.log(unique);
+
+
+//converting an array to object-----------------------------------1
+// const array = ['apple', 'banana', 'kiwi', 'orange'];
+// const transformed = array.reduce((accumulator, currentValue,index) => {
+//   accumulator[currentValue]=index
+//   return accumulator;
+// }, {});
+// console.log(transformed);
+
+//sorting in ascending order-------------------------------------1
+// const numbers = [5, 2, 8, 1, 10];
+// for (let i = 0; i < numbers.length - 1; i++) {
+//   for (let j = 0; j < numbers.length - 1 - i; j++) {
+//     if (numbers[j] > numbers[j + 1]) {
+//       // Swap numbers[j] and numbers[j + 1]
+//       let temp = numbers[j];
+//       numbers[j] = numbers[j + 1];
+//       numbers[j + 1] = temp;
+//     }
+//   }
+// }
+// console.log(numbers);
+
+//align  array by category ------------------------------------ 1 
+// const array = [
+//     { id: 1, category: 'A' },
+//     { id: 2, category: 'B' },
+//     { id: 3, category: 'A' },
+//     { id: 4, category: 'B' },
+//     { id: 5, category: 'C' }
+//   ];
+// const result=array.reduce((acc,currValue)=>{
+//     const category=currValue.category
+//     if (!acc[category]) {
+//         acc[category] = [];
+//       }
+//       acc[category].push(currValue)
+//    return acc;
+// },{}) 
+// console.log(result);
+
+// sorting an object considering an age //using map method
+const people = [
+    { name: 'Alice', age: 25 },
+    { name: 'Bob', age: 30 },
+    { name: 'Charlie', age: 20 }
+  ];
+  
+  const sorted = people.map((currentValue) => currentValue)
+    .sort((a, b) => a.age - b.age);
+  
+  console.log(sorted);
+  
+
+
+
+
+
